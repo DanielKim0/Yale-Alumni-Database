@@ -5,8 +5,44 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@alumnus, url: alumni_path) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
+
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: 'form-control' %>
+
+      <%= f.label :location %>
+      <%= f.text_field :location, class: 'form-control' %>
+
+      <%= f.label :college %>
+      <%= f.text_field :college, class: 'form-control' %>
+
+      <%= f.label :yale_degree %>
+      <%= f.text_field :yale_degree, class: 'form-control' %>
+
+      <%= f.label :yale_degree_year %>
+      <%= f.text_field :yale_degree_year, class: 'form-control' %>
+
+      <%= f.label :other_degrees %>
+      <%= f.text_field :other_degrees, class: 'form-control' %>
+
+      <%= f.label :linkedin %>
+      <%= f.text_field :linkedin, class: 'form-control' %>
+
+      <%= f.label :employer %>
+      <%= f.text_field :employer, class: 'form-control' %>
+
+      <%= f.label :employed_field %>
+      <%= f.text_field :employer, class: 'form-control' %>
+
+      <%= f.label :recommender %>
+      <%= f.text_field :recommender, class: 'form-control' %>
+
+
       <%= f.submit "Create Alumnus Record", class: "btn btn-primary" %>
     <% end %>
   </div>

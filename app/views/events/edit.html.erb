@@ -8,6 +8,22 @@
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :month %>
+      <%= f.number_field :month, class: 'form-control' %>
+
+      <%= f.label :year %>
+      <%= f.number_field :year, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control' %>
+
+      <%= f.label :CLY_sponsored %>
+      <%= f.check_box :CLY_sponsored %>
+
+      <%= f.label :location %>
+      <%= f.text_field :location, class: 'form-control' %>
+
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
   </div>

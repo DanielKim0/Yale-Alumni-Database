@@ -4,6 +4,17 @@
     <section class="alumnus_info">
       <h1>
         <%= @alumnus.name %>
+        <%= @alumnus.email %>
+        <%= @alumnus.phone %>
+        <%= @alumnus.location %>
+        <%= @alumnus.college %>
+        <%= @alumnus.yale_degree %>
+        <%= @alumnus.yale_degree_year %>
+        <%= @alumnus.other_degrees %>
+        <%= @alumnus.linkedin %>
+        <%= @alumnus.employer %>
+        <%= @alumnus.employed_field %>
+        <%= @alumnus.recommender %>
       </h1>
     </section>
   </aside>
@@ -11,7 +22,7 @@
     <% if @alumnus.events.any? %>
       <h3>Events (<%= @alumnus.events.count %>)</h3>
       <ol class="events">
-        <%= render @alumnus.eventss %>
+        <%= render @alumnus.events %>
       </ol>
     <% end %>
   </div>
