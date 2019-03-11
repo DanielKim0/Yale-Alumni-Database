@@ -3,13 +3,13 @@
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
-
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
+
+$gray-medium-light: #eaeaea;
 
 /* universal */
 
@@ -116,7 +116,7 @@ footer {
 /* sidebar */
 
 aside {
-  section.user_info {
+  section.event_info {
     margin-top: 20px;
   }
   section {
@@ -139,15 +139,6 @@ aside {
       margin-top: 0px;
     }
   }
-}
-
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
 }
 
 /* forms */
@@ -175,5 +166,44 @@ input {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
+  }
+}
+
+/* Events index */
+
+.alumni {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* checkins */
+
+.events {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .data {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .timestamp {
+    color: $gray-light;
+	margin-top: 5em;
+	padding-top: 0;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
   }
 }

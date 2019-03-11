@@ -1,20 +1,44 @@
 class AlumniController < ApplicationController
-  def show
-    @alumnus = Alumnus.find(alumnus_params)
+  def new
+	   @alumnus = Alumnus.new
   end
 
-  def new
-    @alumnus = Alumnus.new
+  def show
+    @alumnus = Alumnus.find(params[:id])
   end
 
   def create
-    @alumnus = Alumnus.new(params[:alumnus])
+    @alumnus = alumnus.new(alumnus_params)
+    if @alumnus.save
+	  flash[:success] = "alumnus successfully created!"
+	  redirect_to @alumnus
+    else
+      render 'new'
+    end
   end
 
-  if @alumnus.save
-    # ye
-  else
-    render 'new'
+  def index
+    @alumni = alumnus.paginate(page: params[:page])
+  end
+
+  def destroy
+    alumnus.find(params[:id]).destroy
+    flash[:success] = "alumnus deleted"
+    redirect_to alumni_url
+  end
+
+  def edit
+    @alumnus = alumnus.find(params[:id])
+  end
+
+  def update
+    @alumnus = alumnus.find(params[:id])
+    if @alumnus.update_attributes(alumnus_params)
+	  flash[:success] = "alumnus updated"
+	  redirect_to @alumnus
+    else
+      render 'edit'
+    end
   end
 
   private

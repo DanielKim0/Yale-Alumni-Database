@@ -1,0 +1,14 @@
+<% provide(:title, 'All Alumni') %>
+<h1>All Events</h1>
+
+<%= will_paginate %>
+<ul class="alumni">
+  <% @alumni.each do |alumnus| %>
+    <li>
+	  ID: <%= alumnus.id %>
+      <%= link_to alumnus.name, alumnus %>
+	  <%= link_to "delete", event, method: :delete, data: {confirm: "You sure?"} %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>
