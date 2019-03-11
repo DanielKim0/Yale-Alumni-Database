@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_155940) do
   create_table "attendances", force: :cascade do |t|
     t.integer "alumnus_id"
     t.integer "event_id"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alumnus_id", "event_id"], name: "index_attendances_on_alumnus_id_and_event_id", unique: true

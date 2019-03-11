@@ -1,7 +1,11 @@
-class AttendanceController < ApplicationController
+class AttendancesController < ApplicationController
+  def new
+     @attendance = Attendance.new
+  end
+
   def create
-    @event = Event.find(params[:checkin][:event_id])
-    @attendance = @event.attendance.build(checkin_params
+    @event = Event.find(params[:attendance][:event_id])
+    @attendance = @event.attendances.build(attendance_params)
     if @attendance.save
       flash[:success] = "Attendance successfully logged!"
       redirect_to root_url
@@ -18,6 +22,6 @@ class AttendanceController < ApplicationController
 
   private
     def attendance_params
-      params.require(:attendance, :alumnus_id, :event_id)
+      params.require(:attendance).permit(:alumnus_id, :event_id)
     end
 end

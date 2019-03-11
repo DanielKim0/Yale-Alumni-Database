@@ -8,7 +8,7 @@ class AlumniController < ApplicationController
   end
 
   def create
-    @alumnus = alumnus.new(alumnus_params)
+    @alumnus = Alumnus.new(alumnus_params)
     if @alumnus.save
 	  flash[:success] = "alumnus successfully created!"
 	  redirect_to @alumnus

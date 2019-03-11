@@ -19,11 +19,8 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <% if @alumnus.events.any? %>
-      <h3>Events (<%= @alumnus.events.count %>)</h3>
-      <ol class="events">
-        <%= render @alumnus.events %>
-      </ol>
+    <% @alumnus.attendance.each do |attendance| %>
+      <%= link_to attendance.title, attendance_path(attendance) %>
     <% end %>
   </div>
 </div>

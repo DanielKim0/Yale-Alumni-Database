@@ -3,6 +3,7 @@ class CreateAttendances < ActiveRecord::Migration[5.2]
     create_table :attendances do |t|
       t.integer :alumnus_id
       t.integer :event_id
+      t.string :description
       t.timestamps
     end
 

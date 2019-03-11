@@ -13,11 +13,5 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <% if @event.alumni.any? %>
-      <h3> Alumni (<%= @event.alumni.count %>)</h3>
-      <ol class="checkins">
-        <%= render @event.alumni %>
-      </ol>
-    <% end %>
   </div>
 </div>
