@@ -19,8 +19,9 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <% @alumnus.attendance.each do |attendance| %>
-      <%= link_to attendance.title, attendance_path(attendance) %>
+    <% @alumnus.attendances.each do |attendance| %>
+      <%= Event.find(attendance[:event_id]).name %>
+      <%= link_to "delete", attendance, method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
   </div>
 </div>

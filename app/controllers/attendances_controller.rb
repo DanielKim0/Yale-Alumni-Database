@@ -15,7 +15,7 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
-    attendance.find(params[:id]).destroy
+    Attendance.find(params[:id]).destroy
     flash[:success] = "Attendance successfully wiped!"
     redirect_to root_url
   end
