@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
-  has_and_belongs_to_many :alumni
+  has_many :attendances
+  has_many :alumni, through :attendances
   default_scope -> {order(created_at: :desc)}
   validates :name, presence: true
 end
