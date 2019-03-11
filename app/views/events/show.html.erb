@@ -12,14 +12,15 @@
       </h1>
     </section>
   </aside>
+  <%= link_to "edit event record", edit_event_path(@event)  %>
       <%= link_to "delete event record", @event, method: :destroy, data: { confirm: "You sure?" } %>
   <div class="col-md-8">
-    <%= will_paginate %>
+    <%= will_paginate @attendances %>
     <% @event.attendances.each do |attendance| %>
       <%= Alumnus.find(attendance[:alumnus_id]).name %>
       <%= attendance.description %>
       <%= link_to "delete", attendance, method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
-    <%= will_paginate %>
+    <%= will_paginate @attendances %>
   </div>
 </div>

@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @attendances = @event.attendances.paginate(page: params[:page])
   end
 
   def create

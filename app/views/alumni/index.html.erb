@@ -6,8 +6,10 @@
   <% @alumni.each do |alumnus| %>
     <li>
 	  ID: <%= alumnus.id %>
-      <%= link_to alumnus.name, alumnus %>
-	  <%= link_to "delete", event, method: :destroy, data: {confirm: "You sure?"} %>
+    <%= alumnus.name %>
+    <%= link_to alumnus.name, alumnus %>
+    <%= link_to "edit", edit_alumnus_path(alumnus)  %>
+	  <%= link_to "delete", alumnus, method: :destroy, data: {confirm: "You sure?"} %>
     </li>
   <% end %>
 </ul>

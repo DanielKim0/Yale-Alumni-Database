@@ -5,6 +5,7 @@ class AlumniController < ApplicationController
 
   def show
     @alumnus = Alumnus.find(params[:id])
+    @attendances = @alumnus.attendances.paginate(page: params[:page])
   end
 
   def create
@@ -18,21 +19,21 @@ class AlumniController < ApplicationController
   end
 
   def index
-    @alumni = alumnus.paginate(page: params[:page])
+    @alumni = Alumnus.paginate(page: params[:page])
   end
 
   def destroy
-    alumnus.find(params[:id]).destroy
+    Alumnus.find(params[:id]).destroy
     flash[:success] = "alumnus deleted"
     redirect_to alumni_url
   end
 
   def edit
-    @alumnus = alumnus.find(params[:id])
+    @alumnus = Alumnus.find(params[:id])
   end
 
   def update
-    @alumnus = alumnus.find(params[:id])
+    @alumnus = Alumnus.find(params[:id])
     if @alumnus.update_attributes(alumnus_params)
 	  flash[:success] = "alumnus updated"
 	  redirect_to @alumnus
