@@ -1,6 +1,6 @@
 class Alumnus < ApplicationRecord
   has_many :attendances, dependent: :destroy
-  has_many :events, through: :active_relationships
+  has_many :events, through: :attendances
   default_scope -> {order(created_at: :desc)}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save { self.email = email.downcase }

@@ -1,6 +1,6 @@
 class Attendance < ApplicationRecord
   belongs_to :alumni
   belongs_to :event
-  validates :alumni, presence: true
-  validates :event, presence: true
+  validates :alumnus_id, presence: true
+  validates :event_id, presence: true
 end
