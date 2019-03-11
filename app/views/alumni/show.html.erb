@@ -18,10 +18,14 @@
       </h1>
     </section>
   </aside>
+    <%= link_to "delete alumnus record", @alumnus, method: :destroy, data: { confirm: "You sure?" } %>
   <div class="col-md-8">
+    <%= will_paginate %>
     <% @alumnus.attendances.each do |attendance| %>
       <%= Event.find(attendance[:event_id]).name %>
+      <%= attendance.description %>
       <%= link_to "delete", attendance, method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
+    <%= will_paginate %>
   </div>
 </div>

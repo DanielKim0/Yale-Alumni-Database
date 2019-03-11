@@ -7,7 +7,7 @@
     <li>
 	  ID: <%= event.id %>
       <%= link_to event.name, event %>
-	  <%= link_to "delete", event, method: :delete, data: {confirm: "You sure?"} %>
+	  <%= link_to "delete", event, method: :destroy, data: {confirm: "You sure?"} %>
     </li>
   <% end %>
 </ul>
