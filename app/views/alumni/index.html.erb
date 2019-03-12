@@ -1,15 +1,6 @@
 <% provide(:title, 'All Alumni') %>
 <h1>All Events</h1>
 
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-
-<%= form_tag import_alumni_path, multipart: true do %>
-  <%= file_field_tag "file" %>
-  <%= submit_tag "Import CSV" %>
-<% end %>
-
 Search:
 <%= form_tag(alumni_path, method: :get) do %>
 <%= text_field_tag(:search, "") %>

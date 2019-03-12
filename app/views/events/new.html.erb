@@ -28,3 +28,12 @@
     <% end %>
   </div>
 </div>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<%= form_tag import_events_path, multipart: true do %>
+<%= file_field_tag "file" %>
+<%= submit_tag "Import CSV" %>
+<% end %>

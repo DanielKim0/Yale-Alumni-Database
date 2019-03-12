@@ -1,6 +1,10 @@
 <% provide(:title, 'New Attendance Record') %>
 <h1>Create Attendance Record</h1>
 
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@attendance, url: attendances_path) do |f| %>
@@ -19,3 +23,8 @@
     <% end %>
   </div>
 </div>
+
+Attendance Import
+<%= form_tag import_attendances_path, multipart: true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "Import CSV" %>
