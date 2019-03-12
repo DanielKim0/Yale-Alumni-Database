@@ -4,9 +4,10 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    @event = Event.find(params[:attendance][:event_id])
-    @attendance = @event.attendances.build(attendance_params)
-    if @attendance.save
+    alumnus = Alumnus.find_by(email: params[:attendance][:alumnus_email])
+    event = Event.find_by(name: params[:attendance][:event_name])
+    if Attendance.create({alumnus_id: alumnus[:id], event_id: event[:id],
+      alumnus: alumnus, event: event, description: params[:attendance][:description]})
       flash[:success] = "Attendance successfully logged!"
       redirect_to root_url
     else
@@ -34,6 +35,6 @@ class AttendancesController < ApplicationController
 
   private
     def attendance_params
-      params.require(:attendance).permit(:alumnus_id, :event_id)
+      params.require(:attendance).permit(:alumnus_id, :event_id, :alumnus_email, :event_name)
     end
 end

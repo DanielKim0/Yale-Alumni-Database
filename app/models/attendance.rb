@@ -6,6 +6,9 @@ class Attendance < ApplicationRecord
   validates :alumnus_id, presence: true
   validates :event_id, presence: true
 
+  attr_accessor :alumnus_email
+  attr_accessor :event_name
+
   def self.import(file)
     CSV.foreach(file.path, :headers => true) do |row|
       email, name, desc = row
@@ -14,4 +17,5 @@ class Attendance < ApplicationRecord
     	Attendance.create({ alumnus_id: alumnus[:id], event_id: event[:id], alumnus: alumnus, event: event, description: desc })
     end
   end
+
 end

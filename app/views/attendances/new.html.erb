@@ -6,11 +6,11 @@
     <%= form_for(@attendance, url: attendances_path) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :alumnus_id %>
-      <%= f.number_field :alumnus_id, class: 'form-control' %>
+      <%= f.label :alumnus_email %>
+      <%= f.email_field :alumnus_email, class: 'form-control' %>
 
-      <%= f.label :event_id %>
-      <%= f.number_field :event_id, class: 'form-control' %>
+      <%= f.label :event_name %>
+      <%= f.text_field :event_name, class: 'form-control' %>
 
       <%= f.label :description %>
       <%= f.text_field :description, class: 'form-control' %>
