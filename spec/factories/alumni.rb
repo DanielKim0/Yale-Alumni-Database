@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :alumnus do
     name "MyString"
     email "MyString"
