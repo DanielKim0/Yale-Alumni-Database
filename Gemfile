@@ -29,7 +29,7 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.13'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'capybara'
   gem 'database_cleaner'
 end
