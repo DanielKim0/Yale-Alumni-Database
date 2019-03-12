@@ -5,6 +5,12 @@
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
 
+Search:
+<%= form_tag(alumni_path, method: :get) do %>
+<%= text_field_tag(:search, "") %>
+<%= submit_tag ("Search") %>
+<% end %>
+
 <%= will_paginate %>
 <ul class="alumni">
   <% @alumni.each do |alumnus| %>

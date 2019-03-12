@@ -19,7 +19,7 @@ class AlumniController < ApplicationController
   end
 
   def index
-    @alumni = Alumnus.paginate(page: params[:page])
+    @alumni = Alumnus.search(params).paginate(page: params[:page])
   end
 
   def destroy
@@ -57,6 +57,6 @@ class AlumniController < ApplicationController
     def alumnus_params
       params.require(:alumnus).permit(:name, :email, :phone, :location,
         :college, :yale_degree, :yale_degree_year, :other_degrees, :linkedin,
-        :employer, :employed_field, :recommender)
+        :employer, :employed_field, :recommender, :search)
     end
 end
