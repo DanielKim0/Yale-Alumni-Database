@@ -20,6 +20,18 @@ class AttendancesController < ApplicationController
     redirect_to root_url
   end
 
+  def import
+    if params[:file]
+      Attendance.import(params[:file])
+      flash[:success] = "File succssfully uploaded."
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:failure] = "File unsuccessfully uploaded."
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+
   private
     def attendance_params
       params.require(:attendance).permit(:alumnus_id, :event_id)

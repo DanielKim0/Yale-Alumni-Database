@@ -42,6 +42,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def import
+    if params[:file]
+      Event.import(params[:file])
+      flash[:success] = "File succssfully uploaded."
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:failure] = "File unsuccessfully uploaded."
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
 
     def event_params

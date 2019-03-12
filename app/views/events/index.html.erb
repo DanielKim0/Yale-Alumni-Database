@@ -1,6 +1,12 @@
 <% provide(:title, 'All Events') %>
 <h1>All Events</h1>
 
+<%= form_tag import_events_path, multipart: true do %>
+<%= file_field_tag "file" %>
+<%= submit_tag "Import CSV" %>
+<% end %>
+
+
 <%= will_paginate %>
 <ul class="events">
   <% @events.each do |event| %>

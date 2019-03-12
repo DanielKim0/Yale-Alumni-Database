@@ -1,2 +1,12 @@
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+Attendances
+<%= form_tag import_attendances_path, multipart: true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "Import CSV" %>
+<% end %>
