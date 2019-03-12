@@ -11,4 +11,12 @@ class Event < ApplicationRecord
     	Event.create(row.to_hash)
     end
   end
+
+  def self.search(params)
+    if params[:search]
+      Event.where("name like ?", "%#{params[:search]}%")
+    else
+      Event.all
+    end
+  end
 end

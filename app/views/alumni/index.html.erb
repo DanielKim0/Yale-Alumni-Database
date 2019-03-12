@@ -5,6 +5,11 @@
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
 
+<%= form_tag import_alumni_path, multipart: true do %>
+  <%= file_field_tag "file" %>
+  <%= submit_tag "Import CSV" %>
+<% end %>
+
 Search:
 <%= form_tag(alumni_path, method: :get) do %>
 <%= text_field_tag(:search, "") %>
@@ -24,8 +29,3 @@ Search:
   <% end %>
 </ul>
 <%= will_paginate %>
-
-<%= form_tag import_alumni_path, multipart: true do %>
-  <%= file_field_tag "file" %>
-  <%= submit_tag "Import CSV" %>
-<% end %>
