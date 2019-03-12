@@ -11,7 +11,6 @@ class Attendance < ApplicationRecord
       email, name, desc = row
       alumnus = Alumnus.find_by("email = email")
       event = Event.find_by("name = name")
-      puts(alumnus, event)
     	Attendance.create({ alumnus_id: alumnus[:id], event_id: event[:id], alumnus: alumnus, event: event, description: desc })
     end
   end
