@@ -19,7 +19,7 @@
     </section>
   </aside>
   <%= link_to "edit alumnus record", edit_alumnus_path(@alumnus)  %>
-    <%= link_to "delete alumnus record", @alumnus, method: :destroy, data: { confirm: "You sure?" } %>
+    <%= link_to "delete alumnus record", @alumnus, method: :delete, data: { confirm: "You sure?" } %>
   <div class="col-md-8">
     <%= will_paginate @attendances %>
     <% @alumnus.attendances.each do |attendance| %>

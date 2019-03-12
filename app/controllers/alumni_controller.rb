@@ -11,8 +11,8 @@ class AlumniController < ApplicationController
   def create
     @alumnus = Alumnus.new(alumnus_params)
     if @alumnus.save
-	  flash[:success] = "alumnus successfully created!"
-	  redirect_to @alumnus
+  	  flash[:success] = "alumnus successfully created!"
+  	  redirect_to @alumnus
     else
       render 'new'
     end
@@ -35,10 +35,21 @@ class AlumniController < ApplicationController
   def update
     @alumnus = Alumnus.find(params[:id])
     if @alumnus.update_attributes(alumnus_params)
-	  flash[:success] = "alumnus updated"
-	  redirect_to @alumnus
+  	  flash[:success] = "alumnus updated"
+  	  redirect_to @alumnus
     else
       render 'edit'
+    end
+  end
+
+  def import
+    if params[:file]
+	    Alumnus.import(params[:file])
+      flash[:success] = "File succssfully uploaded."
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:failure] = "File unsuccessfully uploaded."
+      redirect_back(fallback_location: root_path)
     end
   end
 

@@ -1,6 +1,10 @@
 <% provide(:title, 'All Alumni') %>
 <h1>All Events</h1>
 
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
 <%= will_paginate %>
 <ul class="alumni">
   <% @alumni.each do |alumnus| %>
@@ -9,8 +13,13 @@
     <%= alumnus.name %>
     <%= link_to alumnus.name, alumnus %>
     <%= link_to "edit", edit_alumnus_path(alumnus)  %>
-	  <%= link_to "delete", alumnus, method: :destroy, data: {confirm: "You sure?"} %>
+	  <%= link_to "delete", alumnus, method: :delete, data: {confirm: "You sure?"} %>
     </li>
   <% end %>
 </ul>
 <%= will_paginate %>
+
+<%= form_tag import_alumni_path, multipart: true do %>
+  <%= file_field_tag "file" %>
+  <%= submit_tag "Import CSV" %>
+<% end %>
