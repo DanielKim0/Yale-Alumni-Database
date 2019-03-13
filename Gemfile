@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'csv'
+gem 'devise'
 gem 'bootsnap', require: false
 
 group :development do
