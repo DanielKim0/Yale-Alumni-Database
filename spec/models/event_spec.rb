@@ -1,11 +1,5 @@
 require 'rails_helper'
 
-FactoryBot.define do
-  factory :event do
-    name "Test Name"
-  end
-end
-
 RSpec.describe Event, type: :model do
   it "has a valid factory" do
     expect(FactoryBot.build(:event).save).to be_true

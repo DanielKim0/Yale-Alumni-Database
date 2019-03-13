@@ -1,12 +1,5 @@
 require 'rails_helper'
 
-FactoryBot.define do
-  factory :alumnus do
-    name "Test Name"
-    email "test@test.test"
-  end
-end
-
 RSpec.describe Alumnus, type: :model do
   describe 'basic validations' do
     subject { build(:building) }
