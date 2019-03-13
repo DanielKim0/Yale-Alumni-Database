@@ -4,13 +4,13 @@ feature "user clicks on link" do
   scenario "to alumnus creation" do
     visit root_path
     click_link "New Alumnus"
-    expect(page).to have_content("New Alumnus")
+    expect(page).to have_content("Create Alumnus Record")
   end
 
   scenario "to event creation" do
     visit root_path
     click_link "New Event"
-    expect(page).to have_content("New Event")
+    expect(page).to have_content("Create new event")
   end
 
   scenario "to attendance creation" do
