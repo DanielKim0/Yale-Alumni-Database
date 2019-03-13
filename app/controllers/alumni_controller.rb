@@ -45,7 +45,7 @@ class AlumniController < ApplicationController
   def import
     success = Alumnus.import(params[:file])
     if success
-      flash[:success] = "File succssfully uploaded."
+      flash[:success] = "File successfully uploaded."
       redirect_back(fallback_location: root_path)
     else
       flash[:failure] = "File unsuccessfully uploaded."

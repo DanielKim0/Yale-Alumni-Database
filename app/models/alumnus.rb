@@ -16,8 +16,7 @@ class Alumnus < ApplicationRecord
       "college", "yale_degree", "yale_degree_year", "other_degrees", "linkedin",
       "employer", "employed_field", "recommender"]
 
-    data = CSV.new(file).read
-    data[0].each do |header|
+    CSV.foreach(file.path).first.each do |header|
       if !alumnus_params.include? header
         return false
       end
