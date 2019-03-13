@@ -11,9 +11,28 @@ class Alumnus < ApplicationRecord
                   format: { with: VALID_EMAIL_REGEX },
                   uniqueness: { case_sensitive: false }
 
+  def self.valid_headers(file)
+    alumnus_params = ["name", "email", "phone", "location",
+      "college", "yale_degree", "yale_degree_year", "other_degrees", "linkedin",
+      "employer", "employed_field", "recommender"]
+
+    data = CSV.new(file).read
+    data[0].each do |header|
+      if !alumnus_params.include? header
+        return false
+      end
+    end
+    return true
+  end
+
   def self.import(file)
-    CSV.foreach(file.path, :headers => true) do |row|
-    	Alumnus.create(row.to_hash)
+    if file && file.content_type == "text/csv" && valid_headers(file)
+      CSV.foreach(file.path, :headers => true) do |row|
+        Alumnus.create(row.to_hash)
+      end
+      return true
+    else
+      return false
     end
   end
 

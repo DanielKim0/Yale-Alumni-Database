@@ -105,33 +105,37 @@ RSpec.describe Alumnus, type: :model do
 
   context "when uploading csv" do
     it "does not accept a non-csv file" do
-      let(:file) { fixture_file_upload('files/non_csv_alumni.xml') }
-      Alumnus.import(:file)
-      expect(Alumnus.find_by(name: 'One Name').email).not_to eq "one@email.com"
+      file = fixture_file_upload(file_path('non_csv_alumni'))
+      Alumnus.import(file)
+      expect(Alumnus.find_by(name: 'Name One')).to eq nil
     end
 
     it "does not accept invalid headers" do
-      let(:file) { fixture_file_upload('files/invalid_header_alumni.csv') }
-      Alumnus.import(:file)
-      expect(Alumnus.find_by(name: 'One Name').email).not_to eq "one@email.com"
+      file = fixture_file_upload(file_path('invalid_header_alumni.csv'), 'text/csv')
+      Alumnus.import(file)
+      expect(Alumnus.find_by(name: 'Name One')).to eq nil
     end
 
     it "saves a new alumni" do
-      let(:file) { fixture_file_upload('files/valid_alumni.csv') }
-      Alumnus.import(:file)
-      expect(Alumnus.find_by(name: 'One Name').email).to eq "one@email.com"
+      file = fixture_file_upload(file_path("valid_alumni.csv"), 'text/csv')
+      Alumnus.import(file)
+      expect(Alumnus.find_by(name: 'Name One').email).to eq "name@one.com"
     end
 
     it "saves multiple new alumni" do
-      let(:file) { fixture_file_upload('files/valid_alumni.csv') }
-      Alumnus.import(:file)
-      expect(Alumnus.find_by(name: 'Two Name').email).to eq "two@email.com"
+      file = fixture_file_upload(file_path('valid_alumni.csv'), 'text/csv')
+      Alumnus.import(file)
+      expect(Alumnus.find_by(name: 'Name Two').email).to eq "name@two.com"
     end
 
     it "does not save invalid alumni" do
-      let(:file) { fixture_file_upload('files/invalid_alumni.csv') }
-      Alumnus.import(:file)
-      expect(Alumnus.find_by(name: 'Two Name').email).not_to eq "two@email.com"
+      file = fixture_file_upload(file_path('invalid_alumni.csv'), 'text/csv')
+      Alumnus.import(file)
+      expect(Alumnus.find_by(name: 'Name Two')).to eq nil
     end
+  end
+
+  def file_path(filename)
+    Rails.root.join('spec', 'fixtures', "#{filename}")
   end
 end
