@@ -4,10 +4,8 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    alumnus = Alumnus.find_by(email: params[:attendance][:alumnus_email])
-    event = Event.find_by(name: params[:attendance][:event_name])
-    if Attendance.create({alumnus_id: alumnus[:id], event_id: event[:id],
-      alumnus: alumnus, event: event, description: params[:attendance][:description]})
+    @attendance = Attendance.new_alt(event_params)
+    if @attendance.save
       flash[:success] = "Attendance successfully logged!"
       redirect_to root_url
     else
