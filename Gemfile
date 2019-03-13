@@ -35,6 +35,11 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+group :test do
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
+end
+
 group :production do
   gem 'pg'
   gem 'fog'
