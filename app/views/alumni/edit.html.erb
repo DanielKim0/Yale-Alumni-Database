@@ -57,86 +57,86 @@
               <div class="card-body">
                 <%= form_for(@alumnus) do |f| %>
                 <%= render 'shared/error_messages', object: f.object %>
-                  <div class="row">
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <%= f.label :name, class: "bmd-label-floating" %>
-                        <%= f.text_field :name, class: "form-control" %>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <%= f.label :email %>
-                        <%= f.email_field :email, class: 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <%= f.label :phone %>
-                        <%= f.text_field :phone, class: 'form-control' %>
-                      </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <%= f.label :name, class: "bmd-label-floating" %>
+                      <%= f.text_field :name, class: "form-control" %>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <%= f.label :location %>
-                        <%= f.text_field :location, class: 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <%= f.label :college %>
-                        <%= f.text_field :college, class: 'form-control' %>
-                      </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <%= f.label :email %>
+                      <%= f.email_field :email, class: 'form-control' %>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <%= f.label :yale_degree %>
-                        <%= f.text_field :yale_degree, class: 'form-control' %>
-                      </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <%= f.label :phone %>
+                      <%= f.text_field :phone, class: 'form-control' %>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <%= f.label :yale_degree_year %>
-                        <%= f.text_field :yale_degree_year, class: 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <%= f.label :other_degrees %>
-                        <%= f.text_field :other_degrees, class: 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <%= f.label :linkedin %>
-                        <%= f.text_field :linkedin, class: 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <%= f.label :employer %>
-                        <%= f.text_field :employer, class: 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <%= f.label :employed_field %>
-                        <%= f.text_field :employer, class: 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <%= f.label :recommender %>
-                        <%= f.text_field :recommender, class: 'form-control' %>
-                      </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <%= f.label :location %>
+                      <%= f.text_field :location, class: 'form-control' %>
                     </div>
                   </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.label :college %>
+                      <%= f.text_field :college, class: 'form-control' %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.label :yale_degree %>
+                      <%= f.text_field :yale_degree, class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.label :yale_degree_year %>
+                      <%= f.text_field :yale_degree_year, class: 'form-control' %>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.label :other_degrees %>
+                      <%= f.text_field :other_degrees, class: 'form-control' %>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.label :linkedin %>
+                      <%= f.text_field :linkedin, class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.label :employer %>
+                      <%= f.text_field :employer, class: 'form-control' %>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.label :employed_field %>
+                      <%= f.text_field :employer, class: 'form-control' %>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.label :recommender %>
+                      <%= f.text_field :recommender, class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
                     <%= f.submit "Edit Alumnus Record", class: "btn btn-primary" %>
                     <div class="clearfix"></div>
                   <% end %>

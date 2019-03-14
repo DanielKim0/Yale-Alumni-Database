@@ -56,8 +56,8 @@
               </div>
               <div class="card-body">
                 <%= form_tag import_alumni_path, multipart: true do %>
-                <%= file_field_tag "file" %>
-                <%= submit_tag "Import CSV" %>
+                <span class="btn-file"> <%= file_field_tag "file" %> </span>
+                <%= submit_tag "Import CSV", class: "btn btn-primary" %>
                 <% end %>
               </div>
             </div>
@@ -81,29 +81,27 @@
                         <%= f.email_field :email, class: 'form-control' %>
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                       <div class="form-group">
                         <%= f.label :phone %>
                         <%= f.text_field :phone, class: 'form-control' %>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                       <div class="form-group">
                         <%= f.label :location %>
                         <%= f.text_field :location, class: 'form-control' %>
                       </div>
                     </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <%= f.label :college %>
                         <%= f.text_field :college, class: 'form-control' %>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <%= f.label :yale_degree %>
                         <%= f.text_field :yale_degree, class: 'form-control' %>
@@ -129,6 +127,8 @@
                         <%= f.text_field :linkedin, class: 'form-control' %>
                       </div>
                     </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
                         <%= f.label :employer %>

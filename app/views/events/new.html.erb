@@ -69,7 +69,7 @@
                 <%= form_for(@event, url: events_path) do |f| %>
                 <%= render 'shared/error_messages', object: f.object %>
                 <div class="row">
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <div class="form-group">
                       <%= f.label :name, class: "bmd-label-floating" %>
                       <%= f.text_field :name, class: "form-control" %>
@@ -81,33 +81,33 @@
                       <%= f.number_field :month, class: 'form-control' %>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="form-group">
                       <%= f.label :year %>
                       <%= f.number_field :year, class: 'form-control' %>
                     </div>
                   </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <%= f.label :description %>
                       <%= f.text_field :description, class: 'form-control' %>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <%= f.label :CLY_sponsored %>
-                  <%= f.check_box :CLY_sponsored, class: 'form-control' %>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
+                    <%= f.label :CLY_sponsored %>
+                    <%= f.check_box :CLY_sponsored, class: 'form-control' %>
+                  </div>
+                  <div class="col-md-3">
                     <div class="form-group">
                       <%= f.label :location %>
                       <%= f.text_field :location, class: 'form-control' %>
                     </div>
                   </div>
                 </div>
-                    <%= f.submit "Create Event Record", class: "btn btn-primary" %>
-                    <div class="clearfix"></div>
+                  <%= f.submit "Edit Event Record", class: "btn btn-primary" %>
+                  <div class="clearfix"></div>
                   <% end %>
               </div>
             </div>
