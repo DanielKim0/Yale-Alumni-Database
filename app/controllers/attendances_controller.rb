@@ -4,7 +4,13 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    @attendance = Attendance.new_alt(event_params)
+    alumnus = Alumnus.find_by(email: attendance_params["alumnus_email"])
+    event = Event.find_by(name: attendance_params["event_name"])
+    if !(params.has_key? :description)
+      params[:description] = ""
+    end
+
+    @attendance = Attendance.create({:alumnus => alumnus, :event => event, :description => params[:description]})
     if @attendance.save
       flash[:success] = "Attendance successfully logged!"
       redirect_to root_url
@@ -20,8 +26,8 @@ class AttendancesController < ApplicationController
   end
 
   def import
-    if params[:file]
-      Attendance.import(params[:file])
+    success = Attendance.import(params[:file])
+    if success
       flash[:success] = "File successfully uploaded."
       redirect_back(fallback_location: root_path)
     else
@@ -29,7 +35,6 @@ class AttendancesController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-
 
   private
     def attendance_params

@@ -23,7 +23,11 @@ class Attendance < ApplicationRecord
   def self.import(file)
     if file && file.content_type == "text/csv" && valid_headers(file)
       CSV.foreach(file.path, :headers => true) do |row|
-        Attendance.create_alt(row.to_hash)
+        begin
+          self.create_alt(row.to_hash)
+        rescue NoMethodError
+          return false
+        end
       end
       return true
     else
@@ -34,21 +38,21 @@ class Attendance < ApplicationRecord
   def self.new_alt(params)
     alumnus = Alumnus.find_by(email: params["alumnus_email"])
     event = Event.find_by(name: params["event_name"])
-    if !params.has_key? "description"
-      params["description"] = ""
+    if !(params.has_key? :description)
+      params[:description] = ""
     end
-    return self.new({alumnus_id: alumnus["id"], event_id: event["id"],
-      alumnus: alumnus, event: event, description: params["description"]})
+    return self.new({alumnus_id: alumnus[:id], event_id: event[:id],
+      alumnus: alumnus, event: event, description: params[:description]})
   end
 
   def self.create_alt(params)
     alumnus = Alumnus.find_by(email: params["alumnus_email"])
     event = Event.find_by(name: params["event_name"])
-    if !params.has_key? "description"
-      params["description"] = ""
+    if !(params.has_key? :description)
+      params[:description] = ""
     end
-    return self.create({alumnus_id: alumnus["id"], event_id: event["id"],
-      alumnus: alumnus, event: event, description: params["description"]})
+    return self.create({alumnus_id: alumnus[:id], event_id: event[:id],
+      alumnus: alumnus, event: event, description: params[:description]})
   end
 
 end
