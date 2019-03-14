@@ -7,7 +7,7 @@ RSpec.feature "user edits alumni" do
     visit edit_alumnus_path(alumnus)
     fill_in "Name", with: "Sample Name"
     fill_in "Email", with: "sample@email.com"
-    click_button "Save changes"
+    click_button "Edit Alumnus Record"
 
     expect(page).to have_content("alumnus updated")
   end
@@ -16,7 +16,7 @@ RSpec.feature "user edits alumni" do
     visit edit_alumnus_path(alumnus)
     fill_in "Name", with: "Sample Name"
     fill_in "Email", with: ""
-    click_button "Save changes"
+    click_button "Edit Alumnus Record"
 
     expect(page).to have_content("Email can't be blank")
   end

@@ -3,19 +3,19 @@ require "rails_helper"
 feature "user clicks on link" do
   scenario "to alumnus creation" do
     visit root_path
-    click_link "New Alumnus"
-    expect(page).to have_content("Create Alumnus Record")
+    click_link "Create Alumnus"
+    expect(page).to have_content("Alumni Import")
   end
 
   scenario "to event creation" do
     visit root_path
-    click_link "New Event"
-    expect(page).to have_content("Create new event")
+    click_link "Create Event"
+    expect(page).to have_content("Event Import")
   end
 
   scenario "to attendance creation" do
     visit root_path
-    click_link "Attendance"
-    expect(page).to have_content("Attendance")
+    click_link "Take Attendance"
+    expect(page).to have_content("Attendance Import")
   end
 end

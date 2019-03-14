@@ -7,7 +7,7 @@ RSpec.feature "user deletes events" do
 
   scenario "successfully, from events page" do
     visit event_path(@event)
-    click_link "delete event record"
+    click_link "delete"
     expect(Event.count).to eq(0)
   end
 

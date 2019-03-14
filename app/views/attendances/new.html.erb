@@ -52,6 +52,17 @@
           <div class="row">
             <div class="card">
               <div class="card-header card-header-primary">
+                <h4 class="card-title">Attendance Import</h4>
+              </div>
+              <div class="card-body">
+                <%= form_tag import_attendances_path, multipart: true do %>
+                <%= file_field_tag :file %>
+                <%= submit_tag "Import CSV", class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header card-header-primary">
                 <h4 class="card-title">Create Attendance Record</h4>
               </div>
               <div class="card-body">
@@ -77,20 +88,9 @@
                       </div>
                     </div>
                   </div>
-                    <%= f.submit "Create Alumnus Record", class: "btn btn-primary" %>
+                    <%= f.submit "Create Attendance Record", class: "btn btn-primary" %>
                     <div class="clearfix"></div>
                   <% end %>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header card-header-primary">
-                <h4 class="card-title">Import CSV</h4>
-              </div>
-              <div class="card-body">
-                <%= form_tag import_attendances_path, multipart: true do %>
-                <%= file_field_tag :file %>
-                <%= submit_tag "Import CSV" %>
-                <% end %>
               </div>
             </div>
           </div>

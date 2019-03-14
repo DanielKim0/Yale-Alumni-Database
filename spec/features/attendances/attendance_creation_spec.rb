@@ -8,7 +8,7 @@ RSpec.feature "user creates attendance" do
 
   scenario "with valid data" do
     visit root_path
-    click_link "Attendance"
+    click_link "Take Attendance"
     fill_in "Alumnus email", with: @alumnus.email
     fill_in "Event name", with: @event.name
     click_button "Create Attendance Record"
@@ -18,7 +18,7 @@ RSpec.feature "user creates attendance" do
 
   scenario "with invalid data" do
     visit root_path
-    click_link "Attendance"
+    click_link "Take Attendance"
     fill_in "Alumnus email", with: @alumnus.email
     fill_in "Event name", with: "fake_name"
     click_button "Create Attendance Record"

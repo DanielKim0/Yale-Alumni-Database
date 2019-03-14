@@ -57,7 +57,7 @@
               <div class="card-body">
                 <%= form_tag import_events_path, multipart: true do %>
                 <%= file_field_tag "file" %>
-                <%= submit_tag "Import CSV" %>
+                <%= submit_tag "Import CSV", class: "btn btn-primary" %>
                 <% end %>
               </div>
             </div>
@@ -106,7 +106,7 @@
                     </div>
                   </div>
                 </div>
-                  <%= f.submit "Edit Event Record", class: "btn btn-primary" %>
+                  <%= f.submit "Create Event Record", class: "btn btn-primary" %>
                   <div class="clearfix"></div>
                   <% end %>
               </div>

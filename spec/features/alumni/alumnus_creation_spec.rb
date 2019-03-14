@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "user creates alumni" do
   scenario "with valid data" do
     visit root_path
-    click_link "New Alumnus"
+    click_link "Create Alumnus"
     fill_in "Name", with: "Sample Name"
     fill_in "Email", with: "sample@email.com"
     click_button "Create Alumnus Record"
@@ -13,7 +13,7 @@ RSpec.feature "user creates alumni" do
 
   scenario "with invalid data" do
     visit root_path
-    click_link "New Alumnus"
+    click_link "Create Alumnus"
     fill_in "Name", with: "Sample Name"
     click_button "Create Alumnus Record"
 
