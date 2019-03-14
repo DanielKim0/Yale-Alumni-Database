@@ -19,41 +19,49 @@ RSpec.describe Attendance, type: :model do
         expect(FactoryBot.build(:attendance).save).to be_truthy
       end
 
-      it "is invalid without a name" do
-        expect(FactoryBot.build(:alumnus, name: nil).save).to be_falsey
+      it "is invalid without an alumnus" do
+        expect(FactoryBot.build(:attendance, alumnus: nil).save).to be_falsey
+      end
+
+      it "is invalid without an event" do
+        expect(FactoryBot.build(:attendance, event: nil).save).to be_falsey
       end
     end
   end
 
   context "when uploading csv" do
+    before do
+      Alumnus.import(fixture_file_upload(file_path('valid_alumni.csv'), 'text/csv'))
+      Event.import(fixture_file_upload(file_path("valid_events.csv"), 'text/csv'))
+    end
+
     it "does not accept a non-csv file" do
-      file = fixture_file_upload(file_path('non_csv_alumni'))
-      Alumnus.import(file)
-      expect(Alumnus.find_by(name: 'Name One')).to eq nil
+      file = fixture_file_upload(file_path('non_csv_attendances'))
+      Attendance.import(file)
+      expect(Attendance.find_by(event_id: 1)).to eq nil
     end
 
     it "does not accept invalid headers" do
-      file = fixture_file_upload(file_path('invalid_header_alumni.csv'), 'text/csv')
-      Alumnus.import(file)
-      expect(Alumnus.find_by(name: 'Name One')).to eq nil
+      file = fixture_file_upload(file_path('invalid_header_attendances.csv'), 'text/csv')
+      Attendance.import(file)
+      expect(Attendance.find_by(event_id: 1)).to eq nil
     end
 
-    it "saves a new alumni" do
-      file = fixture_file_upload(file_path("valid_alumni.csv"), 'text/csv')
-      Alumnus.import(file)
-      expect(Alumnus.find_by(name: 'Name One').email).to eq "name@one.com"
+    it "saves a new attendance" do
+      file = fixture_file_upload(file_path("valid_attendances.csv"), 'text/csv')
+      Attendance.import(file)
+      expect(Attendance.find_by(event_id: 2)).not_to eq nil
     end
 
-    it "saves multiple new alumni" do
-      file = fixture_file_upload(file_path('valid_alumni.csv'), 'text/csv')
-      Alumnus.import(file)
-      expect(Alumnus.find_by(name: 'Name Two').email).to eq "name@two.com"
+    it "saves multiple new attendances" do
+      file = fixture_file_upload(file_path('valid_attendances.csv'), 'text/csv')
+      Attendance.import(file)
+      expect(Attendance.find_by(event_id: 2)).not_to eq nil
     end
 
-    it "does not save invalid alumni" do
-      file = fixture_file_upload(file_path('invalid_alumni.csv'), 'text/csv')
-      Alumnus.import(file)
-      expect(Alumnus.find_by(name: 'Name Two')).to eq nil
+    it "does not save invalid attendances" do
+      file = fixture_file_upload(file_path('invalid_attendances.csv'), 'text/csv')
+      expect { Attendance.import(file) }.to raise_error(ActiveRecord::RecordNotUnique) 
     end
   end
 
