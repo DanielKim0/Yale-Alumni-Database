@@ -56,6 +56,7 @@
               </div>
               <div class="card-body">
                 <%= form_for(@event) do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
                   <div class="row">
                     <div class="col-md-3">
                       <div class="form-group">
