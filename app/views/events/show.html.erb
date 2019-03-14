@@ -120,6 +120,7 @@
                           <td><%= Alumnus.find(attendance[:event_id]).yale_degree_year %></td>
                           <td><%= attendance.description %></td>
                         </tr>
+                        <% end %>
                         <%= will_paginate @attendances %>
                       </tbody>
                     </table>

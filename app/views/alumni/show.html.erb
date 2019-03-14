@@ -130,6 +130,7 @@
                           <td><%= Event.find(attendance[:event_id]).description %></td>
                           <td><%= attendance.description %></td>
                         </tr>
+                        <% end %>
                         <%= will_paginate @attendances %>
                       </tbody>
                     </table>
