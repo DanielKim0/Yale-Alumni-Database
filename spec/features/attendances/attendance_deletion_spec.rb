@@ -8,13 +8,13 @@ RSpec.feature "user deletes attendance" do
 
   scenario "successfully, from alumnus page" do
     visit alumnus_path(@alumnus)
-    click_link "delete"
+    click_button "delete"
     expect(Attendance.count).to eq(0)
   end
 
   scenario "successfully, from event index" do
     visit event_path(@event)
-    click_link "delete"
+    click_button "delete"
     expect(Attendance.count).to eq(0)
   end
 end

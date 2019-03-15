@@ -49,14 +49,12 @@ RSpec.describe Attendance, type: :model do
 
     it "saves a new attendance" do
       file = fixture_file_upload(file_path("valid_attendances.csv"), 'text/csv')
-      Attendance.import(file)
-      expect(Attendance.find_by(event_id: 2)).not_to eq nil
+      expect{Attendance.import(file)}.to change { Attendance.count }
     end
 
     it "saves multiple new attendances" do
       file = fixture_file_upload(file_path('valid_attendances.csv'), 'text/csv')
-      Attendance.import(file)
-      expect(Attendance.find_by(event_id: 2)).not_to eq nil
+      expect{Attendance.import(file)}.to change { Attendance.count }
     end
 
     it "does not save invalid attendances" do

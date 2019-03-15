@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the repo for the Yale Alumni Association's Alumni database, which stores information on past alumni and events.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This database utilizes postgresql, and uses Ruby 2.6.0 and Rails 5.2.2. It has been tested on Linux Mint 19.1, but will work on other devices.

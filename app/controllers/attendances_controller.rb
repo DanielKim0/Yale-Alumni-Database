@@ -13,7 +13,7 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.create({:alumnus => alumnus, :event => event, :description => params[:description]})
     if @attendance.save
       flash[:success] = "Attendance successfully logged!"
-      redirect_to root_url
+      render 'new'
     else
       render 'new'
     end
@@ -22,7 +22,7 @@ class AttendancesController < ApplicationController
   def destroy
     Attendance.find(params[:id]).destroy
     flash[:success] = "Attendance successfully wiped!"
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   def import

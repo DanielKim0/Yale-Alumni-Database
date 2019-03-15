@@ -7,13 +7,13 @@ RSpec.feature "user deletes alumni" do
 
   scenario "successfully, from alumnus page" do
     visit alumnus_path(@alumnus)
-    click_link "delete"
+    click_button "delete"
     expect(Alumnus.count).to eq(0)
   end
 
   scenario "successfully, from alumni index" do
     visit alumni_path
-    click_link "delete"
+    click_button "delete"
     expect(Alumnus.count).to eq(0)
   end
 end

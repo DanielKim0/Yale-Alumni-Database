@@ -1,3 +1,4 @@
+<% provide(:title, @alumnus.name) %>
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="yale-blue" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
@@ -125,7 +126,7 @@
                         <% @alumnus.attendances.each do |attendance| %>
                         <tr>
                           <td>
-                            <%= link_to "delete", attendance, method: :delete,
+                            <%= link_to "delete", attendance, method: :delete, class: "btn btn-primary",
                             data: {confirm: "Are you sure you want to delete?"} %>
                           </td>
                           <td><%= Event.find(attendance[:event_id]).name %></td>
