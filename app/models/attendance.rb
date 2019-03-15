@@ -32,7 +32,7 @@ class Attendance < ApplicationRecord
           if valid
             begin
               Attendance.create_alt(row.to_hash)
-            rescue ActiveRecord::RecordNotUnique
+            rescue PG::UniqueViolation
               file_count += 1
             end
           else
