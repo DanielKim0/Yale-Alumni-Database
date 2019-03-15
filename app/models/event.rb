@@ -37,7 +37,7 @@ class Event < ApplicationRecord
 
   def self.search(params)
     if params[:search]
-      Event.where("name like ?", "%#{params[:search]}%")
+      Event.basic_search(params[:search])
     else
       Event.all
     end

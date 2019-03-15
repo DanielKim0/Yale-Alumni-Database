@@ -22,6 +22,7 @@ gem 'jbuilder'
 gem 'csv'
 gem 'devise'
 gem 'kaminari'
+gem 'textacular'
 gem 'bootsnap', require: false
 
 group :development do

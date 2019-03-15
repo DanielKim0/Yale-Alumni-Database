@@ -43,7 +43,7 @@ class Alumnus < ApplicationRecord
 
   def self.search(params)
     if params[:search]
-      Alumnus.where("name like ?", "%#{params[:search]}%")
+      Alumnus.basic_search(params[:search])
     else
       Alumnus.all
     end
