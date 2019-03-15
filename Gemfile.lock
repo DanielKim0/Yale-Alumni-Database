@@ -346,6 +346,7 @@ GEM
     msgpack (1.2.9)
     multi_json (1.13.1)
     multipart-post (2.0.0)
+    net-http-persistent (2.9.4)
     netrc (0.11.0)
     nio4r (2.3.1)
     nokogiri (1.10.1)
@@ -361,6 +362,10 @@ GEM
     rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack-wwwhisper (1.1.12)
+      addressable (~> 2.0)
+      net-http-persistent (< 3.0)
+      rack (>= 1.0)
     rails (5.2.2)
       actioncable (= 5.2.2)
       actionmailer (= 5.2.2)
@@ -532,6 +537,7 @@ DEPENDENCIES
   pg
   popper_js
   puma
+  rack-wwwhisper
   rails
   rails-controller-testing
   rspec-rails (~> 3.5)

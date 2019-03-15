@@ -23,6 +23,7 @@ gem 'csv'
 gem 'devise'
 gem 'kaminari'
 gem 'textacular'
+gem 'rack-wwwhisper'
 gem 'bootsnap', require: false
 
 group :development do
