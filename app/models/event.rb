@@ -18,13 +18,19 @@ class Event < ApplicationRecord
   end
 
   def self.import(file)
+    file_count = 0
     if file && file.content_type == "text/csv" && valid_headers(file)
       CSV.foreach(file.path, :headers => true) do |row|
-        Event.create(row.to_hash)
+        valid = Event.new(row.to_hash).valid?
+        if valid
+          Event.create(row.to_hash)
+        else
+          file_count += 1
+        end
       end
-      return true
+      return file_count
     else
-      return false
+      return -1
     end
   end
 

@@ -21,17 +21,28 @@ class Attendance < ApplicationRecord
   end
 
   def self.import(file)
+    file_count = 0
     if file && file.content_type == "text/csv" && valid_headers(file)
       CSV.foreach(file.path, :headers => true) do |row|
         begin
-          self.create_alt(row.to_hash)
+          valid = self.new_alt(row.to_hash).valid?
         rescue NoMethodError
-          return false
+          file_count += 1
+        else
+          if valid
+            begin
+              Attendance.create_alt(row.to_hash)
+            rescue ActiveRecord::RecordNotUnique
+              file_count += 1
+            end
+          else
+            file_count += 1
+          end
         end
       end
-      return true
+      return file_count
     else
-      return false
+      return -1
     end
   end
 

@@ -24,7 +24,7 @@ class EventsController < ApplicationController
 
   def destroy
     Event.find(params[:id]).destroy
-    flash[:success] = "Event deleted"
+    flash[:success] = "Event deleted."
     redirect_to events_url
   end
 
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
-	  flash[:success] = "Event updated"
+	  flash[:success] = "Event updated."
 	  redirect_to @event
     else
       render 'edit'
@@ -44,13 +44,14 @@ class EventsController < ApplicationController
 
   def import
     success = Event.import(params[:file])
-    if success
+    if success == 0
       flash[:success] = "File successfully uploaded."
-      redirect_back(fallback_location: root_path)
+    elsif success == -1
+      flash[:danger] = "File unsuccessfully uploaded."
     else
-      flash[:failure] = "File unsuccessfully uploaded."
-      redirect_back(fallback_location: root_path)
+      flash[:warning] = "File uploaded with #{success helper.pluralize(success, 'failure')}."
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private

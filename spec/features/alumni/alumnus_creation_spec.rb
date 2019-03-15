@@ -8,7 +8,7 @@ RSpec.feature "user creates alumni" do
     fill_in "Email", with: "sample@email.com"
     click_button "Create Alumnus Record"
 
-    expect(page).to have_content("alumnus successfully created")
+    expect(page).to have_content("Alumnus successfully created!")
   end
 
   scenario "with invalid data" do

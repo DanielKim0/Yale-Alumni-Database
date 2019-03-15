@@ -27,13 +27,14 @@ class AttendancesController < ApplicationController
 
   def import
     success = Attendance.import(params[:file])
-    if success
+    if success == 0
       flash[:success] = "File successfully uploaded."
-      redirect_back(fallback_location: root_path)
+    elsif success == -1
+      flash[:danger] = "File unsuccessfully uploaded."
     else
-      flash[:failure] = "File unsuccessfully uploaded."
-      redirect_back(fallback_location: root_path)
+      flash[:warning] = "File uploaded with #{success} #{'failure'.pluralize(success)}."
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private

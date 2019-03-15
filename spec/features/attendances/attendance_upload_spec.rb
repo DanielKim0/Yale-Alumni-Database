@@ -12,8 +12,8 @@ RSpec.feature 'Attendance CSV Import' do
     visit new_attendance_path
     attach_file Rails.root.join('spec', 'fixtures', 'non_csv_attendances')
     click_on 'Import'
-    expect(page).to have_content("File unsuccessfully uploaded")
     expect(Attendance.count).to eq(0)
+    expect(page).to have_content("File unsuccessfully uploaded")
   end
 
   it 'succeeds' do

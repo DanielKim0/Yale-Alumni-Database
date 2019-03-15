@@ -9,7 +9,7 @@ RSpec.feature "user edits alumni" do
     fill_in "Email", with: "sample@email.com"
     click_button "Edit Alumnus Record"
 
-    expect(page).to have_content("alumnus updated")
+    expect(page).to have_content("Alumnus updated.")
   end
 
   scenario "with invalid data" do

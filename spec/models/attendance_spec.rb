@@ -61,7 +61,8 @@ RSpec.describe Attendance, type: :model do
 
     it "does not save invalid attendances" do
       file = fixture_file_upload(file_path('invalid_attendances.csv'), 'text/csv')
-      expect { Attendance.import(file) }.to raise_error(ActiveRecord::RecordNotUnique) 
+      Attendance.import(file)
+      expect(Attendance.find_by(event_id: 2)).to eq nil
     end
   end
 
