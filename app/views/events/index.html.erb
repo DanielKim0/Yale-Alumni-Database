@@ -70,6 +70,7 @@
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
+                        <th>View</th>
                         <th>Edit</th>
                         <th>Delete</th>
                         <th>Name</th>
@@ -83,6 +84,9 @@
                         <%= will_paginate %>
                         <% @events.each do |event| %>
                         <tr>
+                          <td>
+                            <%= link_to "view", alumnus_path(alumnus), class: "btn btn-primary" %>
+                          </td>
                           <td>
                             <%= link_to "edit", edit_event_path(event) %>
                           </td>

@@ -59,6 +59,7 @@
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
+                        <th>View</th>
                         <th>Edit</th>
                         <th>Delete</th>
                         <th>Name</th>
@@ -71,10 +72,13 @@
                       <tbody>
                         <tr>
                           <td>
-                            <%= link_to "edit", edit_event_path(@event) %>
+                            <%= link_to "view", alumnus_path(alumnus), class: "btn btn-primary" %>
                           </td>
                           <td>
-                            <%= link_to "delete", @event, method: :delete,
+                            <%= link_to "edit", edit_event_path(event) %>
+                          </td>
+                          <td>
+                            <%= link_to "delete", event, method: :delete,
                             data: {confirm: "Are you sure you want to delete?"} %>
                           </td>
                           <td><%= @event.name %></td>
