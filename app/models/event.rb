@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   has_many :alumni, through: :attendances
   default_scope -> {order(created_at: :desc)}
   validates :name, presence: true, uniqueness: true
+  validates :month, greater_than_or_equal_to: 1, less_than_or_equal_to: 12
 
   def self.valid_headers(file)
     event_params = ["name", "month", "year", "description", "CLY_sponsored", "location"]
