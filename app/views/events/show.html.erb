@@ -72,13 +72,13 @@
                       <tbody>
                         <tr>
                           <td>
-                            <%= link_to "view", event_path(event), class: "btn btn-primary" %>
+                            <%= link_to "view", event_path(@event), class: "btn btn-primary" %>
                           </td>
                           <td>
-                            <%= link_to "edit", edit_event_path(event), class: "btn btn-primary" %>
+                            <%= link_to "edit", edit_event_path(@event), class: "btn btn-primary" %>
                           </td>
                           <td>
-                            <%= link_to "delete", event, method: :delete, class: "btn btn-primary",
+                            <%= link_to "delete", @event, method: :delete, class: "btn btn-primary",
                             data: {confirm: "Are you sure you want to delete?"} %>
                           </td>
                           <td><%= @event.name %></td>

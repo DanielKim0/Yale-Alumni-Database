@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @attendances = @event.attendances.paginate(page: params[:page])
+    @attendances = @event.attendances.paginate(page: params[:page], :per_page => 100)
   end
 
   def create
@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.search(params).paginate(page: params[:page])
+    @events = Event.search(params).paginate(page: params[:page], :per_page => 100)
   end
 
   def destroy

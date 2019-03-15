@@ -5,7 +5,7 @@ class AlumniController < ApplicationController
 
   def show
     @alumnus = Alumnus.find(params[:id])
-    @attendances = @alumnus.attendances.paginate(page: params[:page])
+    @attendances = @alumnus.attendances.paginate(page: params[:page], :per_page => 100)
   end
 
   def create
@@ -19,7 +19,7 @@ class AlumniController < ApplicationController
   end
 
   def index
-    @alumni = Alumnus.search(params).paginate(page: params[:page], :per_page => 1)
+    @alumni = Alumnus.search(params).paginate(page: params[:page], :per_page => 100)
   end
 
   def destroy
