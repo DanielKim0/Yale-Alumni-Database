@@ -93,7 +93,7 @@
                             <%= link_to "edit", edit_alumnus_path(alumnus) %>
                           </td>
                           <td>
-                            <%= link_to "delete", alumnus, method: :delete,
+                            <%= button_to "delete", alumnus, method: :delete, class: "btn btn-primary",
                             data: {confirm: "Are you sure you want to delete?"} %>
                           </td>
                           <td><%= alumnus.name %></td>
