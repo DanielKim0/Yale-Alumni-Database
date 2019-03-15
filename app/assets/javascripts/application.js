@@ -14,8 +14,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require jquery
-//= require jquery_ujs
 //= require popper
 //= require material/bootstrap-material-design
 //= require material/perfect-scrollbar.jquery.min

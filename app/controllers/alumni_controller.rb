@@ -49,7 +49,7 @@ class AlumniController < ApplicationController
     elsif success == -1
       flash[:danger] = "File unsuccessfully uploaded."
     else
-      flash[:warning] = "File uploaded with #{success helper.pluralize(success, 'failure')}."
+      flash[:warning] = "File uploaded with #{success} #{'failure'.pluralize(success)}."
     end
     redirect_back(fallback_location: root_path)
   end
