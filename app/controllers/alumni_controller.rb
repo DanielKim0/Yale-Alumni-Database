@@ -19,7 +19,7 @@ class AlumniController < ApplicationController
   end
 
   def index
-    @alumni = Alumnus.search(params).paginate(page: params[:page])
+    @alumni = Alumnus.search(params).paginate(page: params[:page], :per_page => 1)
   end
 
   def destroy

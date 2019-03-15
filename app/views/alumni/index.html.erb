@@ -113,9 +113,10 @@
                           <td><%= alumnus.recommender %></td>
                         </tr>
                         <% end %>
-                        <%= will_paginate %>
                       </tbody>
                     </table>
+                    <%= paginate @alumni, class: "pagination" %>
+                    <%= page_entries_info %>
                   </div>
                 </div>
               </div>

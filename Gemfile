@@ -7,6 +7,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem "bootstrap-kaminari-views"
+gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'puma'
@@ -19,6 +21,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'csv'
 gem 'devise'
+gem 'kaminari'
 gem 'bootsnap', require: false
 
 group :development do
