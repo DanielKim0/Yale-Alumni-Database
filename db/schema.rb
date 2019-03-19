@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_155940) do
+ActiveRecord::Schema.define(version: 2019_03_19_200413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2019_03_11_155940) do
     t.string "location"
     t.string "college"
     t.string "yale_degree"
-    t.integer "yale_degree_year"
     t.string "other_degrees"
     t.string "linkedin"
     t.string "employer"
@@ -30,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_155940) do
     t.string "recommender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "attendances", force: :cascade do |t|

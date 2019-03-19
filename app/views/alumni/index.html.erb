@@ -80,12 +80,12 @@
                         <th>Location</th>
                         <th>College</th>
                         <th>Yale Degree</th>
-                        <th>Yale Degree Year</th>
                         <th>Other Degrees</th>
                         <th>Linkedin</th>
                         <th>Employer</th>
                         <th>Employed Field</th>
                         <th>Recommender</th>
+                        <th>Description</th>
                       </thead>
                       <tbody>
                         <% @alumni.each do |alumnus| %>
@@ -106,12 +106,12 @@
                           <td><%= alumnus.location %></td>
                           <td><%= alumnus.college %></td>
                           <td><%= alumnus.yale_degree %></td>
-                          <td><%= alumnus.yale_degree_year %></td>
                           <td><%= alumnus.other_degrees %></td>
                           <td><%= alumnus.linkedin %></td>
                           <td><%= alumnus.employer %></td>
                           <td><%= alumnus.employed_field %></td>
                           <td><%= alumnus.recommender %></td>
+                          <td><%= alumnus.description %></td>
                         </tr>
                         <% end %>
                       </tbody>
