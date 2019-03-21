@@ -13,8 +13,8 @@ class Alumnus < ApplicationRecord
 
   def self.valid_headers(file)
     alumnus_params = ["name", "email", "phone", "location",
-      "college", "yale_degree", "yale_degree_year", "other_degrees", "linkedin",
-      "employer", "employed_field", "recommender"]
+      "college", "yale_degree", "other_degrees", "linkedin",
+      "employer", "employed_field", "recommender", "description"]
 
     CSV.foreach(file.path).first.each do |header|
       if !alumnus_params.include? header
@@ -32,6 +32,7 @@ class Alumnus < ApplicationRecord
         if valid
           Alumnus.create(row.to_hash)
         else
+          Alumnus.create(row.to_hash)
           file_count += 1
         end
       end

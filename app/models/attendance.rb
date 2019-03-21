@@ -28,11 +28,13 @@ class Attendance < ApplicationRecord
           valid = self.new_alt(row.to_hash).valid?
         rescue NoMethodError
           file_count += 1
+        rescue PG::UniqueViolation
+          file_count += 1
         else
           if valid
             begin
               Attendance.create_alt(row.to_hash)
-            rescue PG::UniqueViolation
+            rescue ActiveRecord::RecordNotUnique
               file_count += 1
             end
           else

@@ -57,7 +57,7 @@ class AlumniController < ApplicationController
   private
     def alumnus_params
       params.require(:alumnus).permit(:name, :email, :phone, :location,
-        :college, :yale_degree, :yale_degree_year, :other_degrees, :linkedin,
-        :employer, :employed_field, :recommender, :search)
+        :college, :yale_degree, :other_degrees, :linkedin,
+        :employer, :employed_field, :recommender, :description, :search)
     end
 end

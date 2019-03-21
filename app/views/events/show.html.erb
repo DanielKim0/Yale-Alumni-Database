@@ -107,7 +107,7 @@
                         <th>Alumnus Email</th>
                         <th>Alumnus Phone</th>
                         <th>Alumnus Location</th>
-                        <th>Yale Degree Year</th>
+                        <th>Yale Degree</th>
                         <th>Attendance Description</th>
                       </thead>
                       <tbody>
@@ -122,7 +122,7 @@
                           <td><%= Alumnus.find(attendance[:alumnus_id]).email %></td>
                           <td><%= Alumnus.find(attendance[:alumnus_id]).phone %></td>
                           <td><%= Alumnus.find(attendance[:alumnus_id]).location %></td>
-                          <td><%= Alumnus.find(attendance[:alumnus_id]).yale_degree_year %></td>
+                          <td><%= Alumnus.find(attendance[:alumnus_id]).yale_degree %></td>
                           <td><%= attendance.description %></td>
                         </tr>
                         <% end %>
