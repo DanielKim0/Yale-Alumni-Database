@@ -63,6 +63,14 @@
                   <% end %>
                 </div>
             </div>
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title ">Alumni Export</h4>
+              </div>
+              <div class="card-body">
+                <%= link_to "Download CSV", alumni_path(@alumnus, format: :csv), class: "btn btn-primary"  %>
+              </div>
+            </div>
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">View All Alumni</h4>

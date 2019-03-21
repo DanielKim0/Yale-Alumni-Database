@@ -64,6 +64,14 @@
             </div>
             <div class="card">
               <div class="card-header card-header-primary">
+                <h4 class="card-title ">Attendance Export</h4>
+              </div>
+              <div class="card-body">
+                <%= link_to "Download CSV", attendances_path(@attendance, format: :csv), class: "btn btn-primary"  %>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header card-header-primary">
                 <h4 class="card-title">Create Attendance Record</h4>
               </div>
               <div class="card-body">

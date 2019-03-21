@@ -35,6 +35,17 @@ class Event < ApplicationRecord
     end
   end
 
+  def self.to_csv
+    attributes = ["name", "month", "year", "description", "CLY_sponsored", "location"]
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      Event.all.each do |event|
+        csv << event.attributes.values_at(*attributes)
+      end
+    end
+  end
+
   def self.search(params)
     if params[:search]
       Event.basic_search(params[:search])

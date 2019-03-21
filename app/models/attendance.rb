@@ -48,6 +48,17 @@ class Attendance < ApplicationRecord
     end
   end
 
+  def self.to_csv
+    attributes = ["alumnus_email", "event_name", "description"]
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      Attendance.all.each do |attendance|
+        csv << [Alumnus.find_by(id: attendance.alumnus_id).email, Event.find_by(id: attendance.event_id).name, attendance.description]
+      end
+    end
+  end
+
   def self.new_alt(params)
     alumnus = Alumnus.find_by(email: params["alumnus_email"])
     event = Event.find_by(name: params["event_name"])

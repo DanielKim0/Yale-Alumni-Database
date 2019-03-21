@@ -3,6 +3,15 @@ class AttendancesController < ApplicationController
      @attendance = Attendance.new
   end
 
+  def index
+    respond_to do |format|
+      format.csv do
+        @attendances = Attendance.all
+        send_data @attendances.to_csv
+      end
+    end
+  end
+
   def create
     alumnus = Alumnus.find_by(email: attendance_params["alumnus_email"])
     event = Event.find_by(name: attendance_params["event_name"])

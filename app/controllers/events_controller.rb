@@ -19,7 +19,15 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.search(params).paginate(page: params[:page], :per_page => 100)
+    respond_to do |format|
+      format.html do
+        @events = Event.search(params).paginate(page: params[:page], :per_page => 100)
+      end
+      format.csv do
+        @events = Event.all
+        send_data @events.to_csv
+      end
+    end
   end
 
   def destroy

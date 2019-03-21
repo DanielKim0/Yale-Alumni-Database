@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :events do
     collection { post :import}
   end
-  resources :attendances, only: [:new, :create, :destroy] do
+  resources :attendances, only: [:new, :create, :destroy, :index] do
     collection { post :import}
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

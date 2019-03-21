@@ -42,6 +42,19 @@ class Alumnus < ApplicationRecord
     end
   end
 
+  def self.to_csv
+    attributes = ["name", "email", "phone", "location",
+      "college", "yale_degree", "other_degrees", "linkedin",
+      "employer", "employed_field", "recommender", "description"]
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      Alumnus.all.each do |alumnus|
+        csv << alumnus.attributes.values_at(*attributes)
+      end
+    end
+  end
+
   def self.search(params)
     if params[:search]
       Alumnus.basic_search(params[:search])
