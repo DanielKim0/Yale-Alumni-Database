@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get  '/about',   to: 'static_pages#about'
+  resources :students do
+    collection { post :import}
+  end
   resources :alumni do
     collection { post :import}
   end
