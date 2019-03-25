@@ -10,10 +10,10 @@ class Student < ApplicationRecord
                   uniqueness: { case_sensitive: false }
 
   def self.valid_headers(file)
-    alumnus_params = ["name", "email", "class"]
+    student_params = ["name", "email", "year"]
 
     CSV.foreach(file.path).first.each do |header|
-      if !alumnus_params.include? header
+      if !student_params.include? header
         return false
       end
     end
@@ -39,12 +39,12 @@ class Student < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = ["name", "email", "class"]
+    attributes = ["name", "email", "year"]
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
-      Student.all.each do |alumnus|
-        csv << alumnus.attributes.values_at(*attributes)
+      Student.all.each do |student|
+        csv << student.attributes.values_at(*attributes)
       end
     end
   end
