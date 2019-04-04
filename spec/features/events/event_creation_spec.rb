@@ -8,6 +8,7 @@ RSpec.feature "user creates events" do
     click_button "Create Event Record"
 
     expect(page).to have_content("Event successfully created!")
+    expect(page).to have_title("Test Name")
   end
 
   scenario "with invalid data" do
