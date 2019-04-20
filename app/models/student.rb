@@ -4,13 +4,14 @@ class Student < ApplicationRecord
   default_scope -> {order(created_at: :desc)}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save { self.email = email.downcase }
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :email, presence: true, length: { maximum: 255 },
                   format: { with: VALID_EMAIL_REGEX },
                   uniqueness: { case_sensitive: false }
 
   def self.valid_headers(file)
-    student_params = ["name", "email", "year"]
+    student_params = ["first_name", "last_name", "email", "year"]
 
     CSV.foreach(file.path).first.each do |header|
       if !student_params.include? header
@@ -39,7 +40,7 @@ class Student < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = ["name", "email", "year"]
+    attributes = ["first_name", "last_name", "email", "year"]
     CSV.generate(headers: true) do |csv|
       csv << attributes
 

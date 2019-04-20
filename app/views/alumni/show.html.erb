@@ -73,7 +73,8 @@
                         <th>View</th>
                         <th>Edit</th>
                         <th>Delete</th>
-                        <th>Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>E-Mail</th>
                         <th>Phone</th>
                         <th>Location</th>
@@ -98,7 +99,8 @@
                             <%= button_to "delete", @alumnus, data: {confirm: "Are you sure you want to delete?"},
                             method: :delete, class: "btn btn-primary" %>
                           </td>
-                          <td><%= @alumnus.name %></td>
+                          <td><%= @alumnus.first_name %></td>
+                          <td><%= @alumnus.last_name %></td>
                           <td><%= @alumnus.email %></td>
                           <td><%= @alumnus.phone %></td>
                           <td><%= @alumnus.location %></td>

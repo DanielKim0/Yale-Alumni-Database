@@ -5,7 +5,8 @@ RSpec.feature "user edits alumni" do
 
   scenario "with valid data" do
     visit edit_alumnus_path(alumnus)
-    fill_in "Name", with: "Sample Name"
+    fill_in "First name", with: "Sample"
+    fill_in "Last name", with: "Name"
     fill_in "Email", with: "sample@email.com"
     click_button "Edit Alumnus Record"
 
@@ -14,7 +15,8 @@ RSpec.feature "user edits alumni" do
 
   scenario "with invalid data" do
     visit edit_alumnus_path(alumnus)
-    fill_in "Name", with: "Sample Name"
+    fill_in "First name", with: "Sample"
+    fill_in "Last name", with: "Name"
     fill_in "Email", with: ""
     click_button "Edit Alumnus Record"
 

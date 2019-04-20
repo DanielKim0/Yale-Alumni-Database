@@ -10,6 +10,7 @@ class AlumniController < ApplicationController
 
   def create
     @alumnus = Alumnus.new(alumnus_params)
+    @alumnus.name = "#{@alumnus.first_name} #{@alumnus.last_name}"
     if @alumnus.save
   	  flash[:success] = "Alumnus successfully created!"
   	  redirect_to @alumnus
@@ -42,6 +43,7 @@ class AlumniController < ApplicationController
 
   def update
     @alumnus = Alumnus.find(params[:id])
+    @alumnus.name = "#{@alumnus.first_name} #{@alumnus.last_name}"
     if @alumnus.update_attributes(alumnus_params)
   	  flash[:success] = "Alumnus updated."
   	  redirect_to @alumnus
@@ -67,7 +69,7 @@ class AlumniController < ApplicationController
 
   private
     def alumnus_params
-      params.require(:alumnus).permit(:name, :email, :phone, :location,
+      params.require(:alumnus).permit(:first_name, :last_name, :name, :email, :phone, :location,
         :college, :yale_degree, :other_degrees, :linkedin,
         :employer, :employed_field, :recommender, :description, :search)
     end

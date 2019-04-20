@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.feature 'Attendance CSV Import' do
   before do
-    FactoryBot.create(:alumnus, :name => "Name One", :email => "name@one.com")
-    FactoryBot.create(:alumnus, :name => "Name Two", :email => "name@two.com")
+    FactoryBot.create(:alumnus, :first_name => "Name", :last_name => "One", 
+      :email => "name@one.com")
+    FactoryBot.create(:alumnus, :first_name => "Name", :last_name => "Two",
+      :email => "name@two.com")
     FactoryBot.create(:event, :name => "Name One")
     FactoryBot.create(:event, :name => "Name Two")
   end

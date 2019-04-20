@@ -9,6 +9,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
+    @student.name = "#{@student.first_name} #{@student.last_name}"
     if @student.save
       flash[:success] = "Student successfully created!"
       redirect_to @student
@@ -63,6 +64,6 @@ class StudentsController < ApplicationController
 
   private
     def student_params
-      params.require(:student).permit(:name, :email, :year)
+      params.require(:student).permit(:first_name, :last_name, :name, :email, :year)
     end
 end
